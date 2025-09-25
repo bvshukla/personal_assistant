@@ -14,16 +14,16 @@ const Team = require('../models/Team');
 const Appointment = require('../models/Appointment');
 const FollowUpItem = require('../models/FollowUpItem');
 
-function randomChoice(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-function addMinutes(date, mins) { return new Date(date.getTime() + mins * 60000); }
-function setTime(date, hours, minutes) {
+function randomChoice (arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function addMinutes (date, mins) { return new Date(date.getTime() + mins * 60000); }
+function setTime (date, hours, minutes) {
   const d = new Date(date);
   d.setHours(hours, minutes, 0, 0);
   return d;
 }
-function randomInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function randomInt (min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
-async function main() {
+async function main () {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
     console.error('MONGODB_URI is not set in .env');
@@ -61,7 +61,7 @@ async function main() {
       members: [
         byEmail['alice.johnson@example.com']._id,
         byEmail['carol.singh@example.com']._id,
-        byEmail['danielle.kim@example.com']._id,
+        byEmail['danielle.kim@example.com']._id
       ]
     });
 
@@ -72,7 +72,7 @@ async function main() {
       members: [
         byEmail['bob.martinez@example.com']._id,
         byEmail['ethan.brown@example.com']._id,
-        byEmail['carol.singh@example.com']._id,
+        byEmail['carol.singh@example.com']._id
       ]
     });
 

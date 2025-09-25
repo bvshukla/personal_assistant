@@ -8,7 +8,7 @@ require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
 const mongoose = require('mongoose');
 const User = require('../models/User');
 
-async function main() {
+async function main () {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
     console.error('MONGODB_URI is not set in .env');
@@ -25,7 +25,7 @@ async function main() {
       return {
         name: `Seed User ${n}`,
         email: `seeduser${n}@example.com`,
-        password: 'password123',
+        password: 'password123'
       };
     });
 

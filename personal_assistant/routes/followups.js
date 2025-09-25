@@ -4,7 +4,7 @@ const FollowUpItem = require('../models/FollowUpItem');
 const Appointment = require('../models/Appointment');
 
 // Helper to build filter supporting both top-level and nested routes
-function buildFilter(req) {
+function buildFilter (req) {
   const filter = {};
   if (req.query.appointment) filter.appointment = req.query.appointment;
   if (req.params.appointmentId) filter.appointment = req.params.appointmentId;

@@ -77,7 +77,7 @@ router.post('/', async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 });
- 
+
 // GET /api/users/:id/summary - list appointments and follow-ups for a given user
 // Auth: only the user themself can access
 router.get('/:id/summary', async (req, res) => {

@@ -44,13 +44,13 @@ appointmentSchema.path('endAt').validate(function (value) {
 }, 'End time must be after start time');
 
 // Optional validations for future times and business hours
-function parseTimeHHMM(str) {
+function parseTimeHHMM (str) {
   const [h, m] = (str || '').split(':').map(Number);
   if (Number.isInteger(h) && Number.isInteger(m)) return { h, m };
   return null;
 }
 
-appointmentSchema.pre('validate', function(next) {
+appointmentSchema.pre('validate', function (next) {
   try {
     const now = new Date();
     const enforceFuture = process.env.APPOINTMENT_REQUIRE_FUTURE === 'true';

@@ -40,7 +40,7 @@ const followUpItemSchema = new Schema({
 });
 
 // Ensure defaults and validate relative to appointment
-followUpItemSchema.pre('validate', async function(next) {
+followUpItemSchema.pre('validate', async function (next) {
   try {
     if (!this.appointment) return next();
     const Appointment = require('./Appointment');
@@ -64,7 +64,7 @@ followUpItemSchema.pre('validate', async function(next) {
 });
 
 // Simple helper: set completedAt when completed flips to true
-followUpItemSchema.pre('save', function(next) {
+followUpItemSchema.pre('save', function (next) {
   if (this.isModified('completed')) {
     this.completedAt = this.completed ? (this.completedAt || new Date()) : null;
   }
