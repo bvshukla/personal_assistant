@@ -7,6 +7,8 @@ const appointmentsRouter = require('./routes/appointments');
 const teamsRouter = require('./routes/teams');
 const followupsRouter = require('./routes/followups');
 const auth = require('./middleware/auth');
+const adminRouter = require('./routes/admin');
+const authPublicRouter = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,6 +16,9 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Public auth routes (no auth middleware)
+app.use('/auth', authPublicRouter);
 
 // Auth for all API routes
 app.use('/api', auth);
@@ -24,6 +29,7 @@ app.use('/api/appointments', appointmentsRouter);
 app.use('/api/teams', teamsRouter);
 app.use('/api/followups', followupsRouter);
 app.use('/api/appointments/:appointmentId/followups', followupsRouter);
+app.use('/api/admin', adminRouter);
 
 // Default route
 app.get('/', (req, res) => {
